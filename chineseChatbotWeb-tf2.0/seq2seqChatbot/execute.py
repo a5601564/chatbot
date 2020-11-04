@@ -77,7 +77,6 @@ def train():
         for (batch, (inp, targ)) in enumerate(dataset.take(steps_per_epoch)):
             batch_loss = seq2seqModel.train_step(inp, targ,target_token, enc_hidden)
             total_loss += batch_loss
-            print(batch_loss.numpy())
 
         step_time_epoch = (time.time() - start_time_epoch) / steps_per_epoch
         step_loss = total_loss / steps_per_epoch
