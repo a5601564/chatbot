@@ -2,11 +2,11 @@
 # coding=utf-8
 
 import os
-import getConfig
 import jieba
 from zhon.hanzi import punctuation
 import re
 #结巴是国内的一个分词python库，分词效果非常不错。pip3 install jieba安装
+import getConfig
 
 gConfig = {}
 
@@ -58,7 +58,6 @@ for conv in convs:
 			seq.append(conv[i]+'\t'+conv[i+1])#因为i是从0开始的，因此偶数行为发问的语句，奇数行为回答的语句
 
 seq_train = open(gConfig['seq_data'],'w') 
-
 for i in range(len(seq)):
    seq_train.write(seq[i]+'\n')
  
@@ -66,6 +65,5 @@ for i in range(len(seq)):
       print(len(range(len(seq))), '处理进度：', i)
  
 seq_train.close()
-
 
 
